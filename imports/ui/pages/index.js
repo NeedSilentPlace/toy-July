@@ -1,11 +1,10 @@
 import React from 'react';
-import AccountsUI from '../components/AccountsUI';
+import Header from '../components/Header';
 
-export default function App() {
+export default function Home() {
   return (
     <div>
-      <AccountsUI />
-      <div>Hello toy!</div>
+      <Header />
     </div>
   );
-};
+}

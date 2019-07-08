@@ -1,6 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import { Form, Input, Button } from 'semantic-ui-react';
+import { Accounts } from 'meteor/accounts-base';
 import './signup.less';
+
+// console.log(Accounts.createUser)
+// console.log(Accounts.changePassword)
 
 export default function Signup(props) {
   const [email, setEmail] = useState('');
