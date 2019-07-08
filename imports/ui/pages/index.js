@@ -1,7 +1,11 @@
 import React from 'react';
+import AccountsUI from '../components/AccountsUI';
 
 export default function App() {
   return (
-    <div>Hello toy!</div>
+    <div>
+      <AccountsUI />
+      <div>Hello toy!</div>
+    </div>
   );
 };
