@@ -1,67 +1,89 @@
 import React, { Fragment, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Form, Input, Button } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import SignupForm from './SignupForm';
 import './signup.less';
 
 // console.log(Accounts.createUser)
 // console.log(Accounts.changePassword)
 
+
 export default function Signup(props) {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmpassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  
-  function handleSubmit() {
+  const [errorMessage, setErrorMessage] = useState('')
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  function handleSubmit(ev) {
+    ev.preventDefault();
+    
     if(password !== confirmPassword) {
-      return console.log('Incorrect information')
+      return console.log('incorrect password');
     }
+    
+    Accounts.createUser({
+      username,
+      email,
+      password
+    }, err => err ? setErrorMessage(err.reason) : setIsSuccess(true))
+  }
+
+  if(isSuccess) {
+    return <Redirect exact to='/' />
   }
 
   return (
-    <Fragment>
-      <h1 className="signup-header">Sign Up</h1>
-      <Form className="signup-form">
-        <Form.Field
-        control={Input} 
-        label="*Email" 
-        type="text"
-        placeholder="Required field"
-        value={email} onChange={e => setEmail(e.target.value)} 
+    <div>
+      <form className="signup-form">
+        <SignupForm 
+          title="*Email" 
+          type="text" 
+          placeholder="Required Field" 
+          icon="mail"
+          value={email}
+          action={setEmail} 
         />
-        <Form.Field 
-          control={Input} 
-          label="*Name" 
-          type="text"
-          placeholder="Required field"
-          value={name} onChange={e => setName(e.target.value)}
+        <SignupForm 
+          title="*Name" 
+          type="text" 
+          placeholder="Required Field" 
+          icon="user"
+          value={username}
+          action={setUsername} 
         />
-        <Form.Field 
-          control={Input} 
-          label="*Password" 
+        <SignupForm 
+          title="*Password" 
+          type="password" 
+          placeholder="Required Field" 
+          icon="lock"
+          value={password}
+          action={setPassword} 
+        />
+        <SignupForm 
+          title="*Password Confirm" 
           type="password"
-          placeholder="Required field"
-          value={password} onChange={e => setPassword(e.target.value)}
+          placeholder="Required Field" 
+          icon="lock"
+          value={confirmPassword}
+          action={setConfirmPassword} 
         />
-        <Form.Field 
-          control={Input} 
-          label="*Password Confirm"
-          type="password"
-          placeholder="Required field" 
-          value={confirmPassword} onChange={e => setConfirmpassword(e.target.value)}
-        />
-        <Form.Field 
-          control={Input} 
-          label="Phone Number" 
-          type="text"
-          value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} 
+        <SignupForm 
+          title="Phone Number" 
+          type="text" 
+          placeholder="" 
+          icon="phone"
+          value={phoneNumber}
+          action={setPhoneNumber} 
         />
         <div className="signup-register">
-          <Form.Button onClick={handleSubmit}>Cancel</Form.Button>
-          <Form.Button onClick={handleSubmit}>OK</Form.Button>
+          <Button content="Cancel" />
+          <Button content="OK" onClick={handleSubmit}/>
         </div>
-      </Form>
-    </Fragment>
+      </form>
+    </div>
   );
 }

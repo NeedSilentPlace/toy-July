@@ -1,6 +1,9 @@
 body {
   padding: 10px;
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
   line-height: 1.6;
   letter-spacing: 0.1em;
+}
+#root {
+  height: 100%;
 }
