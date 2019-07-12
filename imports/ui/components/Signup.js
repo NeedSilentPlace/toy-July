@@ -1,13 +1,11 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import { Form, Input, Button } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
+import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import SignupForm from './SignupForm';
-import './signup.less';
 
-// console.log(Accounts.createUser)
-// console.log(Accounts.changePassword)
-
+import '../stylesheets/signup.less';
 
 export default function Signup(props) {
   const [email, setEmail] = useState('');
@@ -17,6 +15,12 @@ export default function Signup(props) {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [errorMessage, setErrorMessage] = useState('')
   const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    if(Meteor.user()) {
+      setIsSuccess(true);
+    }
+  }, []);
 
   function handleSubmit(ev) {
     ev.preventDefault();
@@ -28,7 +32,8 @@ export default function Signup(props) {
     Accounts.createUser({
       username,
       email,
-      password
+      password,
+      profile: { phoneNumber }
     }, err => err ? setErrorMessage(err.reason) : setIsSuccess(true))
   }
 

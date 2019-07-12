@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
-import './signupForm.less';
+import '../stylesheets/signupForm.less';
 
 export default function SignupForm(props) {
   const { title, type, placeholder, icon, value, action } = props;

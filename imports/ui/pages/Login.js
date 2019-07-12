@@ -1,9 +1,9 @@
 import React from 'react';
-import Signup from '../components/Signup';
 import Header from '../components/Header';
+import Login from '../components/Login';
 
 export default () => (
   <Header>
-    <Signup />
+    <Login />
   </Header>
 );

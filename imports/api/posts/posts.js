@@ -1,0 +1,18 @@
+import { Mongo } from 'meteor/mongo';
+import SimpleSchema from 'simpl-schema';
+
+export const Posts = new Mongo.Collection('posts');
+
+const testSchema = new SimpleSchema({
+  owner: { type: String },
+  title: { type: String },
+  description: { type: String },
+  content: { type: String },
+  favorites: { type: Array },
+  'favorites.$': { type: String },
+  comments: { type: Array },
+  'comments.$': { type: Object },
+  createdAt: { type: Date }
+});
+
+Posts.attachSchema(testSchema);

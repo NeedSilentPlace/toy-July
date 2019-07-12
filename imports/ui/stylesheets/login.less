@@ -1,0 +1,37 @@
+@cloud: #f1f9ff;
+@ocean-blue: #2699fb;
+@sky-blue: #9fd2f8;
+@border-blue: #2185d0;
+@white: #fff;
+
+.signup-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  .login-control {
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    margin-top: 15px;
+
+    .button {
+      border: none;
+      background-color: @white;
+      border: 1px solid @sky-blue;
+      color: @ocean-blue;
+      width: 120px;
+      height: 40px;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+      margin: 5px;
+      transition: .3s;
+      &:hover {
+        background-color: @sky-blue;
+        color: @white;
+      }
+    }
+  }
+}

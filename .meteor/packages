@@ -21,3 +21,4 @@ less
 accounts-password
 semantic:ui
 react-meteor-data
+aldeed:collection2
