@@ -1,20 +1,46 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState, useRef } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Form, Button, TextArea, Container } from 'semantic-ui-react';
 import ImageCropper from './ImageCropper';
 
 import '../stylesheets/PostEdit.less';
 
-export default function PostEditForm(props) {
-  console.log(props);
+export default function PostEditForm({ match, location }) {
+  const { _id } = match.params;
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [content, setContent] = useState('');
   const [src, setSrc] = useState(null);
+  const [blogId, setBlogId] = useState('');
   const inputEl = useRef(null);
 
   function savePost() {
-    Meteor.call('posts.insert', title, description, content);
+    Meteor.call("posts.insert", 
+      title, 
+      description, 
+      content, 
+      (err, res) => {
+        if(err) {
+          return console.log(err);
+        }
+        setBlogId(res);
+    });
+  }
+
+  function editPost() {
+    Meteor.call("posts.edit",
+      _id, 
+      title, 
+      description, 
+      content, 
+      (err, res) => {
+        if(err) {
+          return console.log(err);
+        }
+        
+        setBlogId(_id);
+    });
   }
 
   function onFileSelected(ev) {
@@ -23,6 +49,10 @@ export default function PostEditForm(props) {
 
     reader.onload = ev => setSrc(ev.target.result);
     reader.readAsDataURL(selectedFile);
+  }
+
+  if(blogId) {
+    return <Redirect to={`/blog/${blogId}`} />
   }
 
   return (
@@ -55,7 +85,7 @@ export default function PostEditForm(props) {
         />
         <div className="post-control">
           <Button content="Cancel" />
-          <Button content="Save" onClick={savePost} />
+          <Button content="Save" onClick={_id ? editPost : savePost} />
         </div>
       </Form>
     </Container>

@@ -1,26 +1,22 @@
-import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import React, { useState } from 'react';
 import { Form, Button, Comment } from 'semantic-ui-react';
+import '../stylesheets/commentForm.less';
 
-export default function CommentForm() {
+export default function CommentForm(props) {
+  const { postId } = props;
+  const [comments, setComments] = useState('');
+
+  function addComments(ev) {
+    ev.preventDefault();
+
+    Meteor.call('posts.addComments', postId, comments);
+  }
+console.log(comments)
   return (
-    <Comment.Group>
-      <Comment>
-        <Comment.Avatar as='a' src='/images/avatar/small/steve.jpg' />
-        <Comment.Content>
-          <Comment.Author as='a'>Steve Jobes</Comment.Author>
-          <Comment.Metadata>
-            <div>2 days ago</div>
-          </Comment.Metadata>
-          <Comment.Text>Revolutionary!</Comment.Text>
-          <Comment.Actions>
-            <Comment.Action active>Reply</Comment.Action>
-          </Comment.Actions>
-          <Form reply>
-            <Form.TextArea />
-            <Button content='Add Reply' labelPosition='right' icon='edit' primary />
-          </Form>
-        </Comment.Content>
-      </Comment>
-    </Comment.Group>
+    <Form className="comment-create-form">
+      <Form.TextArea value={comments} onChange={ev => setComments(ev.target.value)}/>
+      <button onClick={addComments}>ADD COMMENT</button>
+    </Form>
   );
 };

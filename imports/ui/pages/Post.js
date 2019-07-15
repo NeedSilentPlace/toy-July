@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from '../containers/Header';
-import Login from '../components/Login';
+import Post from '../containers/Post';
 
-export default () => (
+export default (props) => (
   <Header>
-    <Login />
+    <Post {...props}/>
   </Header>
 );

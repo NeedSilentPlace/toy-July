@@ -8,8 +8,11 @@ import SignupForm from './SignupForm';
 import '../stylesheets/signup.less';
 
 export default function Signup(props) {
+  const { isEdit } = props;
+  console.log(props)
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
+  const [oldPassword, setOldPassword] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -17,7 +20,7 @@ export default function Signup(props) {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    if(Meteor.user()) {
+    if(Meteor.user() && !isEdit) {
       setIsSuccess(true);
     }
   }, []);
@@ -30,11 +33,28 @@ export default function Signup(props) {
     }
     
     Accounts.createUser({
-      username,
       email,
       password,
-      profile: { phoneNumber }
+      profile: { 
+        username,
+        phoneNumber,
+      }
     }, err => err ? setErrorMessage(err.reason) : setIsSuccess(true))
+  }
+
+  function editPassword(ev) {
+    ev.preventDefault();
+
+    Accounts.changePassword(
+      oldPassword, 
+      password, 
+      err => err ? console.log(err) : editProfile()  
+    );
+  }
+
+  function editProfile() {
+    Meteor.call('users.update', username, phoneNumber);
+    setIsSuccess(true);
   }
 
   if(isSuccess) {
@@ -46,7 +66,7 @@ export default function Signup(props) {
       <form className="signup-form">
         <SignupForm 
           title="*Email" 
-          type="text" 
+          type="email" 
           placeholder="Required Field" 
           icon="mail"
           value={email}
@@ -60,8 +80,18 @@ export default function Signup(props) {
           value={username}
           action={setUsername} 
         />
+        {isEdit ? (
+          <SignupForm 
+            title="Old Password"
+            type="password"
+            placeholder="Required Field"
+            icon="lock"
+            value={oldPassword}
+            action={setOldPassword}
+          />
+        ) : null}
         <SignupForm 
-          title="*Password" 
+          title={isEdit ? "New Password" : "*Password"} 
           type="password" 
           placeholder="Required Field" 
           icon="lock"
@@ -69,7 +99,7 @@ export default function Signup(props) {
           action={setPassword} 
         />
         <SignupForm 
-          title="*Password Confirm" 
+          title={isEdit ? "New Password Confirm" : "*Password Confirm"} 
           type="password"
           placeholder="Required Field" 
           icon="lock"
@@ -86,7 +116,7 @@ export default function Signup(props) {
         />
         <div className="signup-register">
           <Button content="Cancel" />
-          <Button content="OK" onClick={handleSubmit}/>
+          <Button content="OK" onClick={isEdit ? editPassword : handleSubmit}/>
         </div>
       </form>
     </div>

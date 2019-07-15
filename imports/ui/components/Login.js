@@ -7,7 +7,7 @@ import { Button } from 'semantic-ui-react';
 import '../stylesheets/login.less';
 
 export default function Login() {
-  const [user, setUser] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -21,7 +21,7 @@ export default function Login() {
     ev.preventDefault();
     
     Meteor.loginWithPassword(
-      user, 
+      email, 
       password,
       err => err ? console.log(err) : setIsSuccess(true)
     );
@@ -35,12 +35,12 @@ export default function Login() {
     <div>
       <form className="login-form">
         <SignupForm 
-          title="Name or Email"
+          title="Email"
           type="text"
           placeholder="Required Field"
           icon="user"
-          value={user}
-          action={setUser}
+          value={email}
+          action={setEmail}
         />
         <SignupForm 
           title="Password"

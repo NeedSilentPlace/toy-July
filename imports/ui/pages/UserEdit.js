@@ -4,6 +4,6 @@ import Header from '../containers/Header';
 
 export default (props) => (
   <Header>
-    <Signup isEdit={false} />
+    <Signup isEdit={true} />
   </Header>
 );

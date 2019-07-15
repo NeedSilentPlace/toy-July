@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from '../components/Header';
+import Header from '../containers/Header';
 import PostEditForm from '../components/PostEditForm';
 
-export default () => (
+export default (props) => (
   <Header>
-    <PostEditForm />
+    <PostEditForm {...props}/>
   </Header>
 );

@@ -12,7 +12,7 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
     
-    Posts.insert({
+    const newPost = Posts.insert({
       title,
       description,
       content,
@@ -21,13 +21,16 @@ Meteor.methods({
       owner: this.userId,
       createdAt: new Date()
     });
+
+    return newPost;  // value of _id
   },
-  'posts.edit'(postId ,owner, title, description, content) {
+  'posts.edit'(postId , title, description, content) {
     check(postId, String);
-    check(owner, String);
     check(title, String);
     check(description, String);
     check(content, String);
+
+    const { owner } = Posts.findOne(postId);
 
     if(!this.userId && this.userId === owner) {
       throw new Meteor.Error('not-authorized');
@@ -45,6 +48,8 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
 
+// should refuse if user added comments before
+
     const newComment = {
       owner: this.userId,
       createdAt: new Date(),
@@ -55,14 +60,16 @@ Meteor.methods({
       $push: { comments: newComment }
     });
   },
-  'posts.toggleFavorites'(favorites) {
-    check(favorites, Array);
-
+  'posts.toggleFavorites'(postId) {
+    check(postId, String);
+    console.log(postId);
     if(!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
+
+    const { favorites } = Posts.findOne(postId);
     
-    if(favorites.includes(this.userId)) {
+    if(!favorites.includes(this.userId)) {
       Posts.update(postId, {
         $push: { favorites: this.userId }
       });
