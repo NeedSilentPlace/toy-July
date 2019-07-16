@@ -4,21 +4,49 @@
 @border-blue: #2185d0;
 @white: #fff;
 
-.comment-create-form {
-  button {
-    border: none;
-    float: right;
-    background-color: @ocean-blue;
-    color: @white;
-    width: 130px;
-    height: 40px;
-    border-radius: 3px;
+.comment-input {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+
+  label {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: @ocean-blue;
+  }
+
+  textarea {
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: @ocean-blue;
+    background-color: @cloud;
+    min-height: 100px;
     outline: none;
-    cursor: pointer;
-    margin: 5px;
-    transition: .3s;
-    &:hover {
-      transform: scaleX(1.1);
+    border: none;
+    border: 1px solid @sky-blue;
+    margin-bottom: 1rem;
+  }
+
+  
+  .button-box {
+    display: flex;
+    justify-content: flex-end;
+    
+    button {
+      border: none;
+      background-color: @ocean-blue;
+      color: @white;
+      width: 130px;
+      height: 40px;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+      margin: 5px;
+      transition: .3s;
+      &:hover {
+        transform: scaleX(1.1);
+      }
     }
   }
 }

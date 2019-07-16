@@ -9,7 +9,6 @@ import '../stylesheets/signup.less';
 
 export default function Signup(props) {
   const { isEdit } = props;
-  console.log(props)
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [oldPassword, setOldPassword] = useState('');
@@ -39,7 +38,7 @@ export default function Signup(props) {
         username,
         phoneNumber,
       }
-    }, err => err ? setErrorMessage(err.reason) : setIsSuccess(true))
+    }, err => err ? console.log(err.reason) : setIsSuccess(true))
   }
 
   function editPassword(ev) {
@@ -62,7 +61,7 @@ export default function Signup(props) {
   }
 
   return (
-    <div>
+    <div className="signup-container" style={{height: "calc(100vh - 100px)"}}>
       <form className="signup-form">
         <SignupForm 
           title="*Email" 

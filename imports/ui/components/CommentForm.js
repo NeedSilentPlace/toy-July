@@ -12,11 +12,14 @@ export default function CommentForm(props) {
 
     Meteor.call('posts.addComments', postId, comments);
   }
-console.log(comments)
+
   return (
-    <Form className="comment-create-form">
-      <Form.TextArea value={comments} onChange={ev => setComments(ev.target.value)}/>
-      <button onClick={addComments}>ADD COMMENT</button>
-    </Form>
+    <form className="comment-input">
+      <label>Comment</label>
+      <textarea value={comments} onChange={ev => setComments(ev.target.value)}></textarea>
+      <div className="button-box">
+        <button onClick={addComments}>ADD COMMENT</button>
+      </div>
+    </form>
   );
 };

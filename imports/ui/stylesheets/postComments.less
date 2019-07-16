@@ -1,0 +1,35 @@
+@cloud: #f1f9ff;
+@ocean-blue: #2699fb;
+@sky-blue: #9fd2f8;
+@border-blue: #2185d0;
+@white: #fff;
+
+.comments-box {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  background-color: @cloud;
+  border: 1px solid @sky-blue; 
+  color: @ocean-blue;
+  margin: 1rem 2rem;
+  padding: 1.5rem;
+
+  .comments-header {
+    margin-bottom: 1.2rem;
+    
+    :nth-child(1) {
+      margin-right: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    :nth-child(2) {
+      font-size: 1rem;
+      font-style: italic;
+    }
+  }
+
+  .comments-content {
+    padding: 0 .5rem;
+  }
+}

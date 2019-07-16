@@ -54,7 +54,7 @@ export default function Header(props) {
   }
 
   return (
-    <div>
+    <div className="root-container">
       <div className="header-container">
         <div className="post-controller">
           {activeLeft()}

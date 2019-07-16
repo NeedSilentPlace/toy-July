@@ -13,15 +13,10 @@ const testSchema = new SimpleSchema({
   comments: { type: Array },
   'comments.$': { type: Object },
   'comments.$.owner' : { type: String },
+  'comments.$.ownername' : { type: String },
   'comments.$.content' : { type: String },
   'comments.$.createdAt' : { type: Date },
   createdAt: { type: Date }
-});
-
-const commentsSchema = new SimpleSchema({
-  owner: { type: String },
-  content: { type: String },
-  createdAt: { type: String }
 });
 
 Posts.attachSchema(testSchema);

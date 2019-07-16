@@ -32,7 +32,7 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <div className="login-container" style={{height: "calc(100vh - 100px)"}}>
       <form className="login-form">
         <SignupForm 
           title="Email"

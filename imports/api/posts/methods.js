@@ -48,10 +48,11 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
 
-// should refuse if user added comments before
+    const user = Meteor.user();
 
     const newComment = {
       owner: this.userId,
+      ownername: user.profile.username,
       createdAt: new Date(),
       content
     }
@@ -62,7 +63,7 @@ Meteor.methods({
   },
   'posts.toggleFavorites'(postId) {
     check(postId, String);
-    console.log(postId);
+    
     if(!this.userId) {
       throw new Meteor.Error('not-authorized');
     }

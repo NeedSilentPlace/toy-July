@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Grid, Container, Header, Button, Icon } from 'semantic-ui-react';
 
 import CommentForm from './CommentForm';
+import PostComments from './PostComments';
 
 import '../stylesheets/post.less';
 // heart, heart outline
@@ -24,6 +25,20 @@ export default function Post({ posts, isReady, currentUser }) {
       <Container textAlign="right" className="post-controller">
         <Button as={Link} to={`/blog/edit/${_id}`} content="Edit" />
       </Container>
+    );
+  }
+
+  function commentsValidator() {
+    const wasWrite = comments.filter(comment => comment.owner === currentUser).length === 1;
+
+    if(wasWrite) {
+      return null;
+    }
+
+    return (
+      <div className="comment-area">
+        <CommentForm postId={_id} />
+      </div>
     );
   }
 
@@ -53,9 +68,8 @@ export default function Post({ posts, isReady, currentUser }) {
             {editButtonValidator()}
           </Grid.Column>
           <Grid.Column>
-            <div className="comment-area">
-              <CommentForm postId={_id} />
-            </div>
+            {commentsValidator()}
+            {comments.length ? comments.map(comment => <PostComments key={comment.owner} {...comment} />) : null}
           </Grid.Column>
         </Grid.Row>
       </Grid>
