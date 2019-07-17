@@ -8,7 +8,8 @@ import SignupForm from './SignupForm';
 import '../stylesheets/signup.less';
 
 export default function Signup(props) {
-  const { isEdit } = props;
+  const { isEdit, user } = props;
+
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [oldPassword, setOldPassword] = useState('');
@@ -19,10 +20,15 @@ export default function Signup(props) {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    if(Meteor.user() && !isEdit) {
-      setIsSuccess(true);
+    if(user) {
+      const { emails, profile } = user;
+      const { username, phoneNumber } = profile;
+      
+      setEmail(emails[0].address);
+      setUsername(username);
+      setPhoneNumber(phoneNumber);
     }
-  }, []);
+  }, [user, isEdit]);
 
   function handleSubmit(ev) {
     ev.preventDefault();
@@ -70,6 +76,7 @@ export default function Signup(props) {
           icon="mail"
           value={email}
           action={setEmail} 
+          readOnly={isEdit}
         />
         <SignupForm 
           title="*Name" 

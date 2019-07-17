@@ -23,7 +23,11 @@ export default function Header(props) {
           to="/blog/write" 
           content="Blog Write" 
         />
-        <Button content="Favorite" onClick={logOut}/>
+        <Button 
+          as={Link}
+          to="/blog/favorites"
+          content="Favorite"
+          />
       </>
     );
   }
@@ -46,10 +50,13 @@ export default function Header(props) {
       );
     }
     return (
-      <div>
-        <Icon name="user circle" />
-        <Link to="/user/edit">{user.profile.username}</Link> 
-      </div>
+      <>
+        <div>
+          <Icon name="user circle" />
+          <Link to="/user/edit">{user.profile.username}</Link> 
+        </div>
+        <Button content="LOG OUT" onClick={logOut}/>
+      </>
     );
   }
 

@@ -6,9 +6,11 @@ import Signup from '../../ui/pages/Signup';
 import UserEdit from '../../ui/pages/UserEdit';
 import PostEdit from '../../ui/pages/PostEdit';
 import Login from '../../ui/pages/Login';
+import Post from '../../ui/pages/Post';
+import Favorites from '../../ui/pages/Favorites';
 
+import Chat from '../../ui/containers/Chat';
 
-import Test from '../../ui/pages/Post';
 
 export const renderRoutes = () => (
   <Router>
@@ -19,8 +21,9 @@ export const renderRoutes = () => (
       <Route path="/user/edit" component={UserEdit} />
       <Route path="/blog/write" component={PostEdit} />
       <Route path="/blog/edit/:_id" component={PostEdit} />
-      <Route path="/blog/:_id" component={Test} />
-      <Route path="/test" component={Test} />
+      <Route path="/blog/favorites" component={Favorites} />
+      <Route path="/blog/:_id" component={Post} />
+      <Route path="/test" component={Chat} />
     </Switch>
   </Router>
 );

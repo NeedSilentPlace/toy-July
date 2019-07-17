@@ -1,0 +1,47 @@
+@sky-blue: #9fd2f8;
+@ocean-blue: #2699fb;
+@cloud: #f1f9ff;
+
+.cardview-box {
+  display: inline-block;
+  height: 300px;
+  width: 250px;
+  box-sizing: border-box;
+  padding: 1rem 1.5rem;
+  border: 1px solid @sky-blue;
+  color: @ocean-blue;
+  margin: .5rem;
+  transition: .3s;
+  box-shadow: none;
+  cursor: pointer;
+
+  &:hover {
+    border: none;
+    box-shadow: 3px 3px 20px 3px #9fd2f8;   
+  }
+
+  div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-size: 1.1rem;
+    font-weight: bold;
+    height: 30%;
+  }
+  div:nth-child(2) {
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    height: 50%;
+  }
+  div:nth-child(3) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 20%;
+
+    span:nth-child(1) {
+      margin-right: 0.5rem;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import SimpleSchema from 'simpl-schema';
 
 export const Posts = new Mongo.Collection('posts');
 
-const testSchema = new SimpleSchema({
+const postsSchema = new SimpleSchema({
   owner: { type: String },
   title: { type: String },
   description: { type: String },
@@ -19,4 +19,4 @@ const testSchema = new SimpleSchema({
   createdAt: { type: Date }
 });
 
-Posts.attachSchema(testSchema);
+Posts.attachSchema(postsSchema);

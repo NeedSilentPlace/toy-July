@@ -2,10 +2,10 @@ import React from 'react';
 import Header from '../containers/Header';
 import PostCard from '../containers/PostCard';
 
-export default function Home() {
+export default function Favorites() {
   return (
     <Header>
-      <PostCard />
+      <PostCard isFavorite={true} />
     </Header>
   );
 }

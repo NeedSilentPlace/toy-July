@@ -28,20 +28,6 @@ export default function Post({ posts, isReady, currentUser }) {
     );
   }
 
-  function commentsValidator() {
-    const wasWrite = comments.filter(comment => comment.owner === currentUser).length === 1;
-
-    if(wasWrite) {
-      return null;
-    }
-
-    return (
-      <div className="comment-area">
-        <CommentForm postId={_id} />
-      </div>
-    );
-  }
-
   if(!isReady) {
     return <div>loading...</div>
   }
@@ -68,7 +54,9 @@ export default function Post({ posts, isReady, currentUser }) {
             {editButtonValidator()}
           </Grid.Column>
           <Grid.Column>
-            {commentsValidator()}
+            <div className="comment-area">
+              <CommentForm postId={_id} />
+            </div>
             {comments.length ? comments.map(comment => <PostComments key={comment.owner} {...comment} />) : null}
           </Grid.Column>
         </Grid.Row>

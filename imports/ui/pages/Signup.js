@@ -1,5 +1,5 @@
 import React from 'react';
-import Signup from '../components/Signup';
+import Signup from '../containers/Signup';
 import Header from '../containers/Header';
 
 export default (props) => (
