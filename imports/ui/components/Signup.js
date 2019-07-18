@@ -20,7 +20,7 @@ export default function Signup(props) {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    if(user) {
+    if(user && isEdit) {
       const { emails, profile } = user;
       const { username, phoneNumber } = profile;
       

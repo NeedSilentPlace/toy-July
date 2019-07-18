@@ -5,7 +5,7 @@ import '../imports/api/posts/server/publications';
 
 // user
 import '../imports/api/users/methods';
-
+import '../imports/api/users/server/publications';
 
 //message api
 import '../imports/api/messages/messages';

@@ -1,19 +1,33 @@
 import { Meteor } from 'meteor/meteor';
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Form, Button, TextArea, Container } from 'semantic-ui-react';
 import ImageCropper from './ImageCropper';
 
 import '../stylesheets/PostEdit.less';
 
-export default function PostEditForm({ match, location }) {
-  const { _id } = match.params;
+export default function PostEditForm(props) {
+  const { _id, post } = props;
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [content, setContent] = useState('');
   const [src, setSrc] = useState(null);
   const [blogId, setBlogId] = useState('');
   const inputEl = useRef(null);
+
+  useEffect(() => {
+    if(post) {
+      const { title, description, content } = post;
+
+      setTitle(title);
+      setDescription(description);
+      setContent(content);
+    } else {
+      setTitle('');
+      setDescription('');
+      setContent('');
+    }
+  }, [post]);
 
   function savePost() {
     Meteor.call("posts.insert", 
