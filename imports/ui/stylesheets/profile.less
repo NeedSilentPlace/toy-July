@@ -1,0 +1,35 @@
+@sky-blue: #9fd2f8;
+@ocean-blue: #2699fb;
+@cloud: #f1f9ff;
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  background-color: @cloud;
+  color: @ocean-blue;
+
+  .profile-public {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 75%;
+    font-weight: bold;
+    
+    div:nth-child(1) {
+      margin-bottom: 1.2rem;
+    }
+
+  }
+  .profile-private {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 1rem;
+    border-top: 1px solid @sky-blue;
+    box-sizing: border-box;
+    height: 25%;
+  }
+}

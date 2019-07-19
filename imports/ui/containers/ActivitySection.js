@@ -5,7 +5,12 @@ import { withTracker } from 'meteor/react-meteor-data';
 import ActivitySection from '../components/ActivitySection';
 
 export default withTracker(() => {
+  const userSubscribe = Meteor.subscribe('users');
+
   return {
-    isLoggedIn: Meteor.userId()
+    isReady: userSubscribe.ready(),
+    isLoggedIn: Meteor.user(),
+    users: Meteor.users.find().fetch(),
+
   };
 })(ActivitySection);

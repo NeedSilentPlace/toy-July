@@ -1,0 +1,34 @@
+@cloud: #f1f9ff;
+@ocean-blue: #2699fb;
+@sky-blue: #9fd2f8;
+@white: #fff;
+
+.user-list {
+  display: flex;
+  flex-direction: row;
+  background-color: @cloud;
+  padding: 3px;
+  margin: 5px 0;
+  cursor: pointer;
+
+  div:nth-child(1) {
+    padding: 0.5rem;
+    color: @ocean-blue;
+  }
+  
+  div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    color: @ocean-blue;
+    width: 130px;
+  }
+  
+  div:nth-child(3) {
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    color: @sky-blue;
+  }
+
+}

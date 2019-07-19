@@ -19,7 +19,9 @@
   padding: 1rem 2rem;
 
   .header-title {
-    color: @ocean-blue;
+    a {
+      color: @ocean-blue;
+    }
     font-size: 40px;
     flex-grow: 1;
     font-weight: bold;
@@ -58,5 +60,9 @@
   .login-controller {
     padding-right: 1rem;
     justify-content: flex-end;
+
+    .user-edit {
+      border: 1px solid black;
+    }
   }
 }

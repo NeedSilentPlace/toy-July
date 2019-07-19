@@ -11,7 +11,7 @@ export default function Chat(props) {
 
   useEffect(() => {
     chatContainer.current.scrollTop = chatContainer.current.scrollHeight;
-  }, [messages])
+  }, [messages]);
 
   function sendMessage(ev) {
     ev.preventDefault();

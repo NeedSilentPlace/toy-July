@@ -6,7 +6,6 @@ import '../stylesheets/postCard.less';
 
 export default function PostCard(props) {
   const { posts, isLoggedIn, isReady } = props;
-  console.log('지금은 여기',props)
 
   return (
     <div className="postcard-container">

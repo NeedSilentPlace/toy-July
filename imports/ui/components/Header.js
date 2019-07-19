@@ -51,10 +51,11 @@ export default function Header(props) {
     }
     return (
       <>
-        <div>
-          <Icon name="user circle" />
-          <Link to="/user/edit">{user.profile.username}</Link> 
-        </div>
+          <Button 
+            as={Link} 
+            to="/user/edit" 
+            content="ACCOUNT"
+          />
         <Button content="LOG OUT" onClick={logOut}/>
       </>
     );
