@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../containers/Header';
-import PostCard from '../containers/PostCard';
+import FavoritesCard from '../containers/FavoritesCard';
 
 export default function Favorites() {
   return (
     <Header>
-      <PostCard isFavorite={true} />
+      <FavoritesCard />
     </Header>
   );
 }

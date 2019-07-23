@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import SignupForm from './SignupForm';
 import { Button } from 'semantic-ui-react';
 
@@ -51,7 +51,7 @@ export default function Login() {
           action={setPassword}
         />
         <div className="login-control">
-          <Button content="Cancel" />
+          <Button as={Link} to="/" content="Cancel" />
           <Button content="Log In" onClick={login} />
         </div>
       </form>

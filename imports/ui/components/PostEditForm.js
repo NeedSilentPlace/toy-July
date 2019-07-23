@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState, useEffect, useRef } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Form, Button, TextArea, Container } from 'semantic-ui-react';
 import ImageCropper from './ImageCropper';
 
@@ -98,7 +98,7 @@ export default function PostEditForm(props) {
           onChange={ev => setContent(ev.target.value)}
         />
         <div className="post-control">
-          <Button content="Cancel" />
+          <Button as={Link} to="/" content="Cancel" />
           <Button content="Save" onClick={_id ? editPost : savePost} />
         </div>
       </Form>

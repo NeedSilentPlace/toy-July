@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
@@ -121,7 +121,7 @@ export default function Signup(props) {
           action={setPhoneNumber} 
         />
         <div className="signup-register">
-          <Button content="Cancel" />
+          <Button as={Link} to="/" content="Cancel" />
           <Button content="OK" onClick={isEdit ? editPassword : handleSubmit}/>
         </div>
       </form>

@@ -24,3 +24,7 @@ react-meteor-data
 aldeed:collection2
 momentjs:moment
 mizzao:user-status
+meteortesting:mocha
+dburles:factory
+xolvio:cleaner
+practicalmeteor:sinon

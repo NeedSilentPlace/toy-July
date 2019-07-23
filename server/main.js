@@ -1,13 +1,5 @@
-// post api
 import '../imports/api/posts/posts';
-import '../imports/api/posts/methods';
-import '../imports/api/posts/server/publications';
-
-// user
-import '../imports/api/users/methods';
-import '../imports/api/users/server/publications';
-
-//message api
 import '../imports/api/messages/messages';
-import '../imports/api/messages/methods';
-import '../imports/api/messages/server/publications';
+
+import '../imports/startup/both/methods';
+import '../imports/startup/server/publications';

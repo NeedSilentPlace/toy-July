@@ -3,21 +3,40 @@ import { Icon } from 'semantic-ui-react';
 
 import '../stylesheets/profile.less';
 
-export default function Profile({ current, selected }) {
+export default function Profile({ currentUser, selectedUser }) {
   let email = '';
   let username = '';
   let phoneNumber = '';
 
-  if(current) {
-    email = current.emails[0].address;
-    username = current.profile.username;
-    phoneNumber = current.profile.phoneNumber || 'none';
+
+  function validateUser() {
+    if(!currentUser) {
+      return (
+        <div>login please</div>
+      );
+    }
+    return (
+      <>
+        <div>
+          <Icon name="phone" /> {phoneNumber}
+        </div>
+        <div>
+        <Icon name="mail" /> {email}
+        </div>
+      </>
+    ); 
+  }
+
+  if(currentUser) {
+    email = currentUser.emails[0].address;
+    username = currentUser.profile.username;
+    phoneNumber = currentUser.profile.phoneNumber || 'none';
   }
   
-  if(selected) {
-    email = selected.emails[0].address;
-    username = selected.profile.username;
-    phoneNumber = selected.profile.phoneNumber || 'none'
+  if(selectedUser) {
+    email = selectedUser.emails[0].address;
+    username = selectedUser.profile.username;
+    phoneNumber = selectedUser.profile.phoneNumber || 'none'
   }
   
   return (

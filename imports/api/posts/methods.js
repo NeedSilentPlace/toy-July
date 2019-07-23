@@ -32,11 +32,11 @@ Meteor.methods({
 
     const { owner } = Posts.findOne(postId);
 
-    if(!this.userId && this.userId === owner) {
+    if(!this.userId || this.userId !== owner) {
       throw new Meteor.Error('not-authorized');
     }
 
-    Posts.update(postId, {
+    return Posts.update(postId, {
       $set: { title, description, content }
     });
   },
@@ -49,7 +49,7 @@ Meteor.methods({
     }
 
     const user = Meteor.user();
-
+    
     const newComment = {
       owner: this.userId,
       ownername: user.profile.username,

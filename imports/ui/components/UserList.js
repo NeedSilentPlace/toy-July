@@ -3,7 +3,7 @@ import { Icon } from 'semantic-ui-react';
 
 import '../stylesheets/userList.less';
 
-export default function UserList({ profile, status, emails, selectUser }) {
+export default function UserList({ profile, status, emails, selectUser, searchedUser }) {
   const { username } = profile;
   const { online } = status;
 
@@ -12,6 +12,10 @@ export default function UserList({ profile, status, emails, selectUser }) {
       profile,
       emails
     });
+  }
+
+  if(searchedUser && !username.includes(searchedUser)) {
+    return null;
   }
 
   return (

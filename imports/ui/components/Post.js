@@ -7,7 +7,6 @@ import CommentForm from './CommentForm';
 import PostComments from './PostComments';
 
 import '../stylesheets/post.less';
-// heart, heart outline
 
 export default function Post({ posts, isReady, currentUser }) {
   const { _id, owner, title, description, content, favorites, comments } = posts? posts : {};
@@ -57,7 +56,7 @@ export default function Post({ posts, isReady, currentUser }) {
             <div className="comment-area">
               <CommentForm postId={_id} />
             </div>
-            {comments.length ? comments.map(comment => <PostComments key={comment.owner} {...comment} />) : null}
+            {comments.map(comment => <PostComments key={comment.createdAt} {...comment} />)}
           </Grid.Column>
         </Grid.Row>
       </Grid>

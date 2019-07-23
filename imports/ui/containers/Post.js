@@ -6,8 +6,8 @@ import { Posts } from '../../api/posts/posts';
 import Post from '../components/Post';
 
 export default withTracker(({ match }) => {
-  const postSubscribe = Meteor.subscribe('posts.all');
   const { _id } = match.params;
+  const postSubscribe = Meteor.subscribe('posts.details', _id);
 
   return {
     currentUser: Meteor.userId(),
