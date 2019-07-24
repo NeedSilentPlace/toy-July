@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Grid, Icon } from 'semantic-ui-react';
-import { Meteor } from 'meteor/meteor';
+import React, { useState } from 'react';
+import { Grid } from 'semantic-ui-react';
 
 import Spinner from './Spinner';
 import UserList from './UserList';
@@ -12,15 +11,6 @@ export default function UserSearch(props) {
   const { users, currentUser, isReady } = props;
   const [selectedUser, setSelectedUser] = useState(null);
   const [searchedUser, setSearchedUser] = useState('');
-
-  useEffect(() => {
-    Meteor.call('users.search', searchedUser, (err, result) => {
-      if(err) {
-        console.log(err)
-      }
-      console.log(result);
-    })
-  }, []);
 
   const usersOnActive = [];
   const usersOnInactive = [];

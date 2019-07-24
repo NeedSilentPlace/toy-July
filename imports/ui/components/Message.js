@@ -1,5 +1,4 @@
 import React from 'react';
-import { moment } from 'meteor/momentjs:moment'
 import { Icon } from 'semantic-ui-react';
 
 import '../stylesheets/message.less';

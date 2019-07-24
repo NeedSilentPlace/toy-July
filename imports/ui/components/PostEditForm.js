@@ -30,6 +30,7 @@ export default function PostEditForm(props) {
   }, [post]);
 
   function savePost() {
+
     Meteor.call("posts.insert", 
       title, 
       description, 

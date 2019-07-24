@@ -6,6 +6,7 @@ import { assert } from 'chai';
 import './methods';     // should import methods files for calling methods !
 import { Messages } from './messages';
 
+import './messages.test.coffee';
 
 if(Meteor.isServer) {
   describe('Messages', function() {

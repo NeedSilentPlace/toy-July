@@ -27,4 +27,6 @@ mizzao:user-status
 meteortesting:mocha
 dburles:factory
 xolvio:cleaner
-practicalmeteor:sinon
+modules
+coffeescript-compiler
+coffeescript@2.3.2_1

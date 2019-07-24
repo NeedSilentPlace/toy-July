@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
+    "coffeescript": "^2.4.1",
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.8.6",
     "react-cropper": "^1.2.0",
@@ -17,7 +18,8 @@
     "react-router-dom": "^5.0.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.2",
-    "simpl-schema": "^1.5.5"
+    "simpl-schema": "^1.5.5",
+    "sinon": "^7.3.2"
   },
   "meteor": {
     "mainModule": {

@@ -33,8 +33,12 @@ export default function Signup(props) {
   function handleSubmit(ev) {
     ev.preventDefault();
     
+    if(!email || !username || !password || !confirmPassword) {
+      return alert('Required field is not satisfied');
+    }
+
     if(password !== confirmPassword) {
-      return console.log('incorrect password');
+      return alert('incorrect password');
     }
     
     Accounts.createUser({
@@ -44,11 +48,19 @@ export default function Signup(props) {
         username,
         phoneNumber,
       }
-    }, err => err ? console.log(err.reason) : setIsSuccess(true))
+    }, err => err ? alert(err.reason) : setIsSuccess(true))
   }
 
   function editPassword(ev) {
     ev.preventDefault();
+
+    if(!email || !username || !oldPassword || !password || !confirmPassword) {
+      return alert('Required field is not satisfied');
+    }
+
+    if(password !== confirmPassword) {
+      return alert('incorrect password');
+    }
 
     Accounts.changePassword(
       oldPassword, 

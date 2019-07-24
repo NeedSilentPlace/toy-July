@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import '../stylesheets/header.less';
@@ -32,7 +32,7 @@ export default function Header(props) {
     );
   }
 
-  function chageRightView() {
+  function changeRightView() {
     if(!user) {
       return (
         <>
@@ -51,11 +51,11 @@ export default function Header(props) {
     }
     return (
       <>
-          <Button 
-            as={Link} 
-            to="/user/edit" 
-            content="ACCOUNT"
-          />
+        <Button 
+          as={Link} 
+          to="/user/edit" 
+          content="ACCOUNT"
+        />
         <Button content="LOG OUT" onClick={logOut}/>
       </>
     );
@@ -71,7 +71,7 @@ export default function Header(props) {
           <Link to="/">Hank Link</Link>
         </div>
         <div className="login-controller">
-          {chageRightView()}
+          {changeRightView()}
         </div>
       </div>
       {children}

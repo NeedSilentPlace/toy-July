@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Grid } from 'semantic-ui-react';
-
 
 import Spinner from './Spinner';
 import UserSearch from './UserSearch';

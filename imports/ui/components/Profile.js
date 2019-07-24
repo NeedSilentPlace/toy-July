@@ -48,12 +48,7 @@ export default function Profile({ currentUser, selectedUser }) {
         <div>{username}</div>
       </div>
       <div className="profile-private">
-        <div>
-          <Icon name="phone" /> {phoneNumber}
-        </div>
-        <div>
-        <Icon name="mail" /> {email}
-        </div>
+        {validateUser()}
       </div>
     </div>
   );

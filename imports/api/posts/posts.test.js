@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
-import { sinon } from 'meteor/practicalmeteor:sinon';
+import sinon from 'sinon';
 import { Factory } from 'meteor/dburles:factory';
 import { Random } from 'meteor/random';
 
@@ -105,7 +105,7 @@ if(Meteor.isServer) {
         assert.equal(comments[0].content, 'some comments');
       });
 
-      it('can toggle favorites filed using one method', () => {
+      it('can toggle favorites fieled using one method', () => {
         const toggleFavorite = Meteor.server.method_handlers['posts.toggleFavorites'];
         const invocation = { userId: anotherUserId };
 
