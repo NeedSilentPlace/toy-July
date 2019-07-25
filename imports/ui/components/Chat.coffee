@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Meteor } from 'meteor/meteor';
-import Message from './Message';
+import React, { useState, useEffect, useRef } from 'react'
+import { Meteor } from 'meteor/meteor'
+import Message from './Message'
 
-import '../stylesheets/chat.less';
+import '../stylesheets/chat.less'
 
 export default Chat = (props) ->
   { messages, currentUser } = props

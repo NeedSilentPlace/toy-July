@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Cropper from 'react-cropper';
 
-import '../../../node_modules/cropperjs/dist/cropper.css'
+import '../../../node_modules/cropperjs/dist/cropper.css';
 
 export default class ImageCropper extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from 'react-loader-spinner'
 
-import '../stylesheets/spinner.less';
+import '../stylesheets/spinner.less'
 
 export default Spinner = ->
   <div className="spinner-container">

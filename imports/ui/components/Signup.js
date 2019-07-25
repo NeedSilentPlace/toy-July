@@ -16,7 +16,7 @@ export default function Signup(props) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Signup(props) {
   function handleSubmit(ev) {
     ev.preventDefault();
     
-    if(!email || !username || !password || !confirmPassword) {
+    if(!email.trim() || !username.trim() || !password.trim() || !confirmPassword.trim()) {
       return alert('Required field is not satisfied');
     }
 
@@ -54,7 +54,7 @@ export default function Signup(props) {
   function editPassword(ev) {
     ev.preventDefault();
 
-    if(!email || !username || !oldPassword || !password || !confirmPassword) {
+    if(!email.trim() || !username.trim() || !oldPassword.trim() || !password.trim() || !confirmPassword.trim()) {
       return alert('Required field is not satisfied');
     }
 
@@ -74,8 +74,12 @@ export default function Signup(props) {
     setIsSuccess(true);
   }
 
+  if(user && !isEdit) {
+    return <Redirect exact to='/' />;
+  }
+
   if(isSuccess) {
-    return <Redirect exact to='/' />
+    return <Redirect exact to='/' />;
   }
 
   return (

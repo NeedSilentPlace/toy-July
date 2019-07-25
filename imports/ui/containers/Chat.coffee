@@ -7,8 +7,7 @@ import Chat from '../components/Chat.coffee'
 export default withTracker(-> 
   messageSubscribe = Meteor.subscribe('messages.all')
 
-  {
-    currentUser: Meteor.userId(),
+  return
+    currentUser: Meteor.userId()
     messages: Messages.find().fetch()
-  }
 ) Chat;

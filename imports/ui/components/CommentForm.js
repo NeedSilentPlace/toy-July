@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
-import { Form, Button, Comment } from 'semantic-ui-react';
+
 import '../stylesheets/commentForm.less';
 
 export default function CommentForm(props) {

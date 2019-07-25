@@ -15,7 +15,10 @@ export default function Chat(props) {
 
   function sendMessage(ev) {
     ev.preventDefault();
-    
+    if(!message.trim()) {
+      return;
+    }
+
     Meteor.call('messages.insert', message);
     setMessage('');
   }

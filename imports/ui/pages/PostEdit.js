@@ -4,6 +4,6 @@ import PostEditForm from '../containers/PostEditForm';
 
 export default (props) => (
   <Header>
-    <PostEditForm {...props}/>
+    <PostEditForm {...props} />
   </Header>
 );

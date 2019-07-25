@@ -30,7 +30,9 @@ export default function PostEditForm(props) {
   }, [post]);
 
   function savePost() {
-
+    if(!title.trim() || !description.trim()) {
+      return alert('Please type title and description');
+    }
     Meteor.call("posts.insert", 
       title, 
       description, 
@@ -44,6 +46,9 @@ export default function PostEditForm(props) {
   }
 
   function editPost() {
+    if(!title.trim() || !description.trim()) {
+      return alert('Please type title and description');
+    }
     Meteor.call("posts.edit",
       _id, 
       title, 
@@ -52,8 +57,7 @@ export default function PostEditForm(props) {
       (err, res) => {
         if(err) {
           return console.log(err);
-        }
-        
+        }   
         setBlogId(_id);
     });
   }

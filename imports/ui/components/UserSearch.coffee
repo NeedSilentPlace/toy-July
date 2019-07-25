@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Grid } from 'semantic-ui-react';
+import React, { useState } from 'react'
+import { Grid } from 'semantic-ui-react'
 
-import Spinner from './Spinner';
-import UserList from './UserList';
-import Profile from './Profile';
+import Spinner from './Spinner.coffee'
+import UserList from './UserList.coffee'
+import Profile from './Profile.coffee'
 
-import '../stylesheets/userSearch.less';
+import '../stylesheets/userSearch.less'
 
 export default UserSearch = (props) ->
   { users, currentUser, isReady } = props
@@ -19,6 +19,8 @@ export default UserSearch = (props) ->
     users.forEach (user) ->
       if user.status.online then usersOnActive.push user else usersOnInactive.push user
 
+    usersOnInactive.sort (a, b) => b.status.lastLogin.date - a.status.lastLogin.date
+    
   
 
   searchListVisualizer = ->

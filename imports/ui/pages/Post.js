@@ -4,6 +4,6 @@ import Post from '../containers/Post';
 
 export default (props) => (
   <Header>
-    <Post {...props}/>
+    <Post {...props} />
   </Header>
 );

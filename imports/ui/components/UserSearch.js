@@ -19,6 +19,7 @@ export default function UserSearch(props) {
     users.forEach(user => {
       user.status.online ? usersOnActive.push(user) : usersOnInactive.push(user);
     });
+    usersOnInactive.sort((a, b) => b.status.lastLogin.date - a.status.lastLogin.date);
   }
 
   function searchListVisualizer() {

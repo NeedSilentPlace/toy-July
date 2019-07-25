@@ -53,7 +53,8 @@ if Meteor.isServer
 
       it 'can not insert if not logged in', ->
         insertPost = Meteor.server.method_handlers['posts.insert']
-        invocation = userId: undefined 
+        invocation = 
+          userId: undefined 
         mock = ['some title', 'some description', 'some content']
 
         assert.throws (-> insertPost.apply invocation, mock), Meteor.Error, 'not-authorized'

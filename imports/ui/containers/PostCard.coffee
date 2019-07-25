@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { withTracker } from 'meteor/react-meteor-data'
 import { Posts } from '../../api/posts/posts'
-import PostCard from '../components/PostCard'
+import PostCard from '../components/PostCard.coffee'
 
 export default withTracker(-> 
   postSubscribe = Meteor.subscribe('posts.all');

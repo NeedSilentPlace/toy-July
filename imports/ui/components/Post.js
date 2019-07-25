@@ -1,15 +1,16 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Grid, Container, Header, Button, Icon } from 'semantic-ui-react';
 
+import Spinner from './Spinner';
 import CommentForm from './CommentForm';
 import PostComments from './PostComments';
 
 import '../stylesheets/post.less';
 
 export default function Post({ posts, isReady, currentUser }) {
-  const { _id, owner, title, description, content, favorites, comments } = posts? posts : {};
+  const { _id, owner, title, description, content, favorites, comments } = posts ? posts : {};
 
   function toggleFavorites() {
     Meteor.call('posts.toggleFavorites', _id);
@@ -28,7 +29,15 @@ export default function Post({ posts, isReady, currentUser }) {
   }
 
   if(!isReady) {
-    return <div>loading...</div>
+    return <Spinner />
+  }
+
+  if(isReady && !currentUser) {
+    return <Redirect to="/login" />
+  }
+
+  if(isReady && !posts) {
+    return null; //404
   }
   
   return (

@@ -23,7 +23,7 @@ export default function Login() {
     Meteor.loginWithPassword(
       email, 
       password,
-      err => err ? console.log(err) : setIsSuccess(true)
+      err => err ? alert(err.reason) : setIsSuccess(true)
     );
   }
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { moment } from 'meteor/momentjs:moment'
+import { moment } from 'meteor/momentjs:moment';
+
 import '../stylesheets/postComments.less';
 
 export default function PostComments(props) {

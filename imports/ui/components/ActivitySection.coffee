@@ -1,9 +1,9 @@
-import React from 'react';
-import { Grid } from 'semantic-ui-react';
+import React from 'react'
+import { Grid } from 'semantic-ui-react'
 
-import Spinner from './Spinner.coffee';
-import UserSearch from './UserSearch.coffee';
-import Chat from '../containers/Chat.coffee';
+import Spinner from './Spinner.coffee'
+import UserSearch from './UserSearch.coffee'
+import Chat from '../containers/Chat.coffee'
 
 export default ActivitySection = ({ isLoggedIn, users, isReady }) ->
   chatVisualizer = ->

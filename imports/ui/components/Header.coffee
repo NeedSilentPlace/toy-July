@@ -1,9 +1,9 @@
-import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Button } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Meteor } from 'meteor/meteor'
+import { Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
-import '../stylesheets/header.less';
+import '../stylesheets/header.less'
 
 export default Header = (props) ->
   { children, user } = props

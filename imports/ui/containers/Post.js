@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Posts } from '../../api/posts/posts';

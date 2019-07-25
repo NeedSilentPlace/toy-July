@@ -1,13 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-import Home from '../../../ui/pages/Home.coffee';
-import Signup from '../../../ui/pages/Signup';
-import UserEdit from '../../../ui/pages/UserEdit';
-import PostEdit from '../../../ui/pages/PostEdit';
-import Login from '../../../ui/pages/Login';
-import Post from '../../../ui/pages/Post';
-import Favorites from '../../../ui/pages/Favorites';
+import Home from '../../../ui/pages/Home.coffee'
+import Signup from '../../../ui/pages/Signup.coffee'
+import UserEdit from '../../../ui/pages/UserEdit.coffee'
+import PostEdit from '../../../ui/pages/PostEdit.coffee'
+import Login from '../../../ui/pages/Login.coffee'
+import Post from '../../../ui/pages/Post.coffee'
+import Favorites from '../../../ui/pages/Favorites.coffee'
 
 export renderRoutes = () => 
   <Router>
