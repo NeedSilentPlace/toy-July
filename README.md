@@ -9,7 +9,7 @@
 - Send message in anonymous (on logging in)
 - Check the other users profile
 
----
+
 
 ### Skills
 
@@ -20,14 +20,14 @@
 - MongoDB
 - Coffee Script
 
----
+
 
 ### Testing
 
 - Unit Test (meteor methods)
 - Mocha, Chai
 
----
+
 
 ### Lesson From Toy
 
