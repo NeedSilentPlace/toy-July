@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import React, { useState, useEffect } from 'react'
 import { Redirect, Link } from 'react-router-dom'
-import SignupForm from './SignupForm'
+import SignupForm from './SignupForm.coffee'
 import { Button } from 'semantic-ui-react'
 
 import '../stylesheets/login.less'

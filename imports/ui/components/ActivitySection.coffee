@@ -4,6 +4,7 @@ import { Grid } from 'semantic-ui-react'
 import Spinner from './Spinner.coffee'
 import UserSearch from './UserSearch.coffee'
 import Chat from '../containers/Chat.coffee'
+import SmartLogo from './SmartLogo.coffee';
 
 export default ActivitySection = ({ isLoggedIn, users, isReady }) ->
   chatVisualizer = ->
@@ -13,7 +14,7 @@ export default ActivitySection = ({ isLoggedIn, users, isReady }) ->
     if(isReady and isLoggedIn)
       return <Chat />
 
-    <div>Please Login</div>
+    <SmartLogo />
 
   <div style={{padding: "1rem"}}>
     <Grid columns={2} stackable>

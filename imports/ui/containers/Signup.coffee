@@ -3,7 +3,8 @@ import { withTracker } from 'meteor/react-meteor-data';
 import Signup from '../components/Signup.coffee';
 
 export default withTracker(({ isEdit })->
-  return
+  return {
     user: Meteor.user(),
     isEdit
-) Singup
+  }
+) Signup

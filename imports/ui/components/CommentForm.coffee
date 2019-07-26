@@ -1,7 +1,7 @@
-import { Meteor } from 'meteor/meteor';
-import React, { useState } from 'react';
+import { Meteor } from 'meteor/meteor'
+import React, { useState } from 'react'
 
-import '../stylesheets/commentForm.less';
+import '../stylesheets/commentForm.less'
 
 export default CommentForm = ({ postId }) ->
   [comments, setComments] = useState ''

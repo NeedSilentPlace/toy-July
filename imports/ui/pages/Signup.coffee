@@ -1,6 +1,6 @@
 import React from 'react'
-import Signup from '../containers/Signup'
-import Header from '../containers/Header'
+import Signup from '../containers/Signup.coffee'
+import Header from '../containers/Header.coffee'
 
 export default ->
   <Header>

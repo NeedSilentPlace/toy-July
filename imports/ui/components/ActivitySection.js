@@ -4,6 +4,7 @@ import { Grid } from 'semantic-ui-react';
 import Spinner from './Spinner';
 import UserSearch from './UserSearch';
 import Chat from '../containers/Chat';
+import SmartLogo from './SmartLogo';
 
 export default function ActivitySection({ isLoggedIn, users, isReady }) {
   
@@ -15,7 +16,7 @@ export default function ActivitySection({ isLoggedIn, users, isReady }) {
       return <Chat />;
     }
 
-    return <div>please Login</div>
+    return <SmartLogo />
   }
 
   return (
