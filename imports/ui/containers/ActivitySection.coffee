@@ -9,7 +9,7 @@ export default withTracker(->
 
   {
     isReady: userSubscribe.ready(),
-    isLoggedIn: Meteor.user(),
+    user: Meteor.user(),
     users: Meteor.users.find().fetch(),
   }
 ) ActivitySection

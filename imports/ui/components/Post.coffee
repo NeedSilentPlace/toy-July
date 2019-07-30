@@ -6,6 +6,7 @@ import { Grid, Container, Header, Button, Icon } from 'semantic-ui-react'
 import Spinner from './Spinner.coffee'
 import CommentForm from './CommentForm.coffee'
 import PostComments from './PostComments.coffee'
+import NotFound from './NotFound.coffee'
 
 import '../stylesheets/post.less'
 
@@ -30,7 +31,7 @@ export default Post = ({ posts, isReady, currentUser }) ->
     return <Redirect to="/login" />
   
   if isReady and !posts
-    return null # 404
+    return <NotFound /> # 404
 
   <div className="post-container">
     <Grid columns='equal' stackable>

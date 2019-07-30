@@ -5,7 +5,7 @@ import Message from './Message';
 import '../stylesheets/chat.less';
 
 export default function Chat(props) {
-  const { messages, currentUser } = props;
+  const { messages, currentUserId } = props;
   const [message, setMessage] = useState('');
   const chatContainer = useRef(null);
 
@@ -30,7 +30,7 @@ export default function Chat(props) {
           <Message
             {...message} 
             key={message._id} 
-            currentUser={currentUser}
+            currentUser={currentUserId}
           />))}
       </div>
       <form>

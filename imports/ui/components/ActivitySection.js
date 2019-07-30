@@ -6,13 +6,13 @@ import UserSearch from './UserSearch';
 import Chat from '../containers/Chat';
 import SmartLogo from './SmartLogo';
 
-export default function ActivitySection({ isLoggedIn, users, isReady }) {
+export default function ActivitySection({ user, users, isReady }) {
   
   function chatVisualizer() {
     if(!isReady) {
       return <Spinner />;
     }
-    if(isReady && isLoggedIn) {
+    if(isReady && user) {
       return <Chat />;
     }
 
@@ -25,7 +25,7 @@ export default function ActivitySection({ isLoggedIn, users, isReady }) {
         <Grid.Column>
           <UserSearch 
             users={users ? users : []} 
-            currentUser={isLoggedIn}
+            currentUser={user}
             isReady={isReady}
           />
         </Grid.Column>

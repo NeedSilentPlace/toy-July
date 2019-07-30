@@ -5,7 +5,7 @@ import PostCardView from './PostCardView';
 import '../stylesheets/postCard.less';
 
 export default function PostCard(props) {
-  const { posts, isLoggedIn, isReady } = props;
+  const { posts, userId, isReady } = props;
 
   if(isReady && !isLoggedIn) {
     return <Redirect to="/login" />;
@@ -14,7 +14,7 @@ export default function PostCard(props) {
   return (
     <div className="postcard-container">
       {posts.map(post => (
-        <Link key={post._id} to={isLoggedIn ? `/blog/${post._id}` : '/login'}>
+        <Link key={post._id} to={userId ? `/blog/${post._id}` : '/login'}>
           <PostCardView {...post} />
         </Link>
       ))}

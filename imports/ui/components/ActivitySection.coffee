@@ -6,12 +6,12 @@ import UserSearch from './UserSearch.coffee'
 import Chat from '../containers/Chat.coffee'
 import SmartLogo from './SmartLogo.coffee';
 
-export default ActivitySection = ({ isLoggedIn, users, isReady }) ->
+export default ActivitySection = ({ user, users, isReady }) ->
   chatVisualizer = ->
     if !isReady
       return <Spinner />
     
-    if(isReady and isLoggedIn)
+    if(isReady and user)
       return <Chat />
 
     <SmartLogo />
@@ -21,7 +21,7 @@ export default ActivitySection = ({ isLoggedIn, users, isReady }) ->
       <Grid.Column>
         <UserSearch 
           users={if users then users else []} 
-          currentUser={isLoggedIn}
+          currentUser={user}
           isReady={isReady}
         />
       </Grid.Column>

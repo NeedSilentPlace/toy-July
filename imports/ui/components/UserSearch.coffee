@@ -19,9 +19,7 @@ export default UserSearch = (props) ->
     users.forEach (user) ->
       if user.status.online then usersOnActive.push user else usersOnInactive.push user
 
-    usersOnInactive.sort (a, b) => b.status.lastLogin.date - a.status.lastLogin.date
-    
-  
+    usersOnInactive.sort (a, b) => b.status.lastLogin.date - a.status.lastLogin.date     
 
   searchListVisualizer = ->
     if !isReady

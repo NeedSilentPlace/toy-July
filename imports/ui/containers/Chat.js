@@ -8,7 +8,7 @@ export default withTracker(() => {
   const messageSubscribe = Meteor.subscribe('messages.all');
 
   return {
-    currentUser: Meteor.userId(),
+    currentUserId: Meteor.userId(),
     messages: Messages.find().fetch(),
   };
 })(Chat);

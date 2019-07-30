@@ -10,5 +10,5 @@ Meteor.publish('posts.details', function(_id) {
 });
 
 Meteor.publish('posts.favorites', function() {
-  return Posts.find({ favorites: this.userId});
+  return Posts.find({ favorites: this.userId });
 });

@@ -8,7 +8,7 @@ export default withTracker(() => {
 
   return {
     posts: Posts.find({}, { sort: { createdAt: -1 } }).fetch(),
-    isLoggedIn: Meteor.userId(),
+    userId: Meteor.userId(),
     isReady: favoritesSubscribe.ready()
   };
 })(PostCard);

@@ -8,6 +8,7 @@ import PostEdit from '../../../ui/pages/PostEdit.coffee'
 import Login from '../../../ui/pages/Login.coffee'
 import Post from '../../../ui/pages/Post.coffee'
 import Favorites from '../../../ui/pages/Favorites.coffee'
+import NotFound from '../../../ui/components/NotFound.coffee';
 
 export renderRoutes = () => 
   <Router>
@@ -20,5 +21,6 @@ export renderRoutes = () =>
       <Route path="/blog/edit/:_id" component={PostEdit} />
       <Route path="/blog/favorites" component={Favorites} />
       <Route path="/blog/:_id" component={Post} />
+      <Route component={NotFound} />
     </Switch>
   </Router>
