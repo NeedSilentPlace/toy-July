@@ -1,6 +1,7 @@
-### Toy Project
+## Toy Project
 
-__Features__
+
+### Features
 
 - Sign Up, Log In, Log Out
 - Write Blog Posts
@@ -10,26 +11,25 @@ __Features__
 
 
 
-__Skills__
+### Skills
 
 - Meteor
 - React
 - React Router
 - Sematic UI React
 - MongoDB
-
 - Coffee Script
 
-  
 
-__Testing__
+
+### Testing
 
 - Unit Test (meteor methods)
 - Mocha, Chai
 
 
 
-__Lesson From Toy__
+### Lesson From Toy
 
 - Meteor 
   - Differences between client-side DB (mini mongo) and server-side DB (mongo)
